@@ -1,0 +1,23 @@
+To Open the Game Next Time:
+    Open Terminal
+    
+    Type these commands in order:
+        cd "Desktop/Cursor/Shoutouts Tool"
+        python3 -m http.server 8080
+    
+    Open your web browser and go to http://localhost:8080
+
+1. To open on desktop:
+        Open Terminal
+            cd "Desktop/Cursor/Shoutouts Tool"
+            python3 -m http.server 8080 (or just type in this)
+        Go to http://localhost:8080 in your browser
+2. To quit: Ctrl+C (or Cmd+C on Mac) in Terminal
+
+1. to open on mobile:
+        open terminal/ close browser first by 
+            ^C
+            ipconfig getifaddr en0 (to get the local ip address)
+            python3 -m http.server 8080 --bind 192.168.1.70 (ip address near the end)
+
+2. copy link (http://192.168.1.70:8080/) to phone

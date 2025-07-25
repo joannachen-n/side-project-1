@@ -1,0 +1,133 @@
+Here's a comprehensive guide for designing pixel art game assets in Figma for your Flappy Bird-style game:
+
+1. Pixel Art Best Practices:
+- Work in powers of 2 (16x16, 32x32, 64x64 pixels)
+- Keep consistent pixel size across all assets
+- Use a limited color palette (8-16 colors max)
+- Avoid anti-aliasing when exporting
+- Create a pixel grid in Figma (View → Layout Grids)
+
+2. Recommended Asset Sizes:
+    Player (Bird/Ball):
+   - 32x32px or 48x48px base size
+   - Animation frames: 3-4 frames
+   - Hit box should be ~80% of visible size
+
+   Pipes:
+   - Width: 64px-96px
+   - Height: Variable (based on game height)
+   - Cap/Detail sections: 32px height
+   - Keep consistent width with current game
+
+   Background:
+   - Create in layers for parallax
+   - Sky: Full canvas (400x600px)
+   - Clouds: 128px height, various widths
+   - Ground: 96-128px height
+
+   UI Elements:
+   - Score numbers: 32x32px each
+   - Buttons: 96x32px or 128x48px
+   - Icons (mute/unmute): 32x32px
+
+3. Export Settings in Figma:
+    Sprites:
+   - Export as PNG
+   - No scaling
+   - Disable "Include in exports" for guides
+   - Check "PNG hash" option
+   - Use transparent background
+
+   Background:
+   - Export layers separately
+   - Maintain power-of-2 dimensions
+   - Consider sprite sheet for animations
+
+4. Common Mistakes to Avoid
+    ❌ Don't:
+   - Use non-pixel-perfect scaling
+   - Mix pixel densities
+   - Use blur/effects
+   - Export with anti-aliasing
+   - Use gradients
+   - Make hit boxes exact size of art
+
+   ✅ Do:
+   - Test assets at game's actual size
+   - Create clear silhouettes
+   - Use consistent light source
+   - Make collision areas obvious
+   - Keep file naming consistent
+
+5. File Organization in Figma
+    📁 Main Game Assets
+   ├── 🎮 Player
+   │   ├── Idle
+   │   ├── Jump
+   │   └── Fall
+   ├── 🚧 Obstacles
+   │   ├── Pipe_Top
+   │   ├── Pipe_Bottom
+   │   └── Pipe_Caps
+   ├── 🌅 Background
+   │   ├── Sky
+   │   ├── Clouds
+   │   └── Ground
+   └── 📱 UI
+       ├── Buttons
+       ├── Numbers
+       └── Icons
+
+6. Design Considerations
+Visual Hierarchy:
+   - Player should pop against background
+   - Obstacles need clear edges
+   - Score should be highly visible
+   - Consistent padding in UI
+
+Color Theory:
+   - Use distinct colors for:
+     • Player (warm/bright)
+     • Obstacles (cool/solid)
+     • Background (muted)
+     • UI (contrasting)
+
+7. Animation Preparation:
+    Player:
+   - Create sprite sheet template
+   - Keep consistent anchor points
+   - Use even spacing between frames
+   - Consider motion arcs
+
+   Export for Animation:
+   - Individual frames or sprite sheet
+   - Maintain frame dimensions
+   - Number frames sequentially
+   - Include frame padding
+
+8. Implementation Tips:
+    javascript
+    // In your game code:
+   const ASSET_CONFIG = {
+     player: {
+       width: 32,
+       height: 32,
+       frames: 3,
+       hitboxRadius: 13  // Slightly smaller than visual
+     },
+     pipes: {
+       width: 64,
+       capHeight: 32,
+       minSpacing: 180
+     },
+     ui: {
+       buttonWidth: 96,
+       buttonHeight: 32
+     }
+   };
+
+9. Responsive Considerations:
+   - Design assets at 2x size for HD displays
+   - Create multiple sizes for UI elements
+   - Test scaling on different screens
+   - Keep hit boxes consistent
