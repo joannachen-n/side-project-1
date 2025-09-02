@@ -1,0 +1,73 @@
+BASEPROMPT:
+
+I'm building a Flappy Bird-style game using only HTML, CSS, and JavaScript. I’m a beginner and using Cursor to learn as I go. I want this game to feel like it was designed by a top-tier Pentagram designer — simple, clean, polished, and humorous.
+
+Please help me set up the basic structure with explanations in comments:
+1. `index.html` — includes a canvas where the game will be rendered.
+2. `style.css` — centers the canvas, sets the background to sky blue, and makes the layout responsive.
+3. `script.js` — should:
+   - Draw a yellow bird (circle or temporary placeholder).
+   - Use gravity to make the bird fall.
+   - Let the bird jump on spacebar or screen tap.
+   - Animate using `requestAnimationFrame`.
+
+Once this works, I’ll ask for help adding pipes, score tracking, and a game over modal.
+
+Keep it well-commented and modular so I can customize it later with my own Figma assets.
+
+prompt 
+
+🧩 1. Prompt to Add Pipes and Collision Detection
+Now that I have a working bird that falls and flaps using spacebar or touch, I want to add pipes and basic game logic.
+
+Please update my `script.js` to include:
+- Pipes that spawn at regular intervals (every 1.5–2 seconds).
+- Each pipe pair should have a randomized vertical gap.
+- Pipes should scroll from right to left.
+- Detect collision between the bird and the pipes or top/bottom of the screen.
+- If a collision happens, show a game over state (e.g. console log or alert for now).
+- Clean code structure with comments so I can later animate the pipes or use Figma designs instead of rectangles.
+
+Keep the logic simple and beginner-friendly. I'd like to style and design the pipes later using Figma, so use placeholder rectangles for now.
+
+🧩 1.2 Score tracking, gameover modal, home screen, instructions
+I want to build out additional features in my Flappy Bird–style browser game.
+
+Please help me implement the following features using HTML, CSS, and JavaScript:
+
+1. **Score Tracking:**
+   - Keep track of the number of pipes the player successfully passes.
+   - Display the current score on the top-left or top-center of the game while it’s running.
+
+2. **Game Over Modal:**
+   - When the bird collides with a pipe or the ground, display a modal overlay.
+   - The modal should show:
+     - Final score
+     - “Play Again” button
+   - Clicking “Play Again” should reset the game (score, pipe positions, bird position, etc.).
+
+3. **Home Screen:**
+   - When the page loads, show a "Home" screen before the game starts.
+   - The Home screen should include:
+     - A title or logo for the game
+     - Short instructions: “Press spacebar or tap to flap. Avoid the pipes!”
+     - A “Start Game” button
+
+4. **Transitions Between Screens:**
+   - Hide the home screen when the game starts.
+   - Show the game canvas while playing.
+   - Show the Game Over modal on loss.
+   - Allow restarting by going back into the game loop cleanly.
+
+Keep the code modular and add helpful comments so I can style or enhance each part later using my own Figma designs. Make sure everything works on both desktop and mobile.
+
+
+🖼️ 2. Prompt to Replace Circle with Bird Image (Figma Export)
+I’ve exported a custom bird image from Figma called `bird.png` and placed it in my project folder.
+
+Please help me update `script.js` so that instead of drawing a circle, it draws my bird image (`bird.png`) on the canvas. The bird should:
+- Be centered where the circle used to be.
+- Scale appropriately (e.g. around 40x40 pixels).
+- Maintain the same gravity and jump behavior as before.
+
+Also let me know how to preload the image so the game doesn’t break if it loads slowly.

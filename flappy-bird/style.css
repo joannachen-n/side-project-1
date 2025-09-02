@@ -1,0 +1,177 @@
+/* Modern CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    background: linear-gradient(180deg, #64B5F6 0%, #90CAF9 100%) fixed;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    /* Prevent bounce scroll on iOS */
+    overscroll-behavior: none;
+    /* Prevent pull-to-refresh */
+    touch-action: none;
+    /* Prevent text selection */
+    user-select: none;
+    -webkit-user-select: none;
+    /* Center everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Better font rendering */
+    -webkit-font-smoothing: antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;  /* Match canvas width */
+    height: 600px;     /* Back to original height */
+    margin: 20px;
+   
+    /* Ensure proper stacking */
+    z-index: 1;
+    /* Center canvas inside container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameCanvas {
+    /* Make canvas responsive within container */
+    width: 100%;
+    height: 100%;
+    /* Preserve aspect ratio */
+    object-fit: contain;
+    /* Remove previous border and shadow (now on container) */
+    border: none;
+    box-shadow: none;
+    /* Smooth edges */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+#gameOverScreen {
+    position: absolute;  /* Position relative to game container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    border-radius: 16px;  /* Match container radius */
+}
+
+#gameOverScreen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.game-over-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.game-over-content h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.final-score {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 1.5rem;
+}
+
+#restartButton {
+    background: #43A047;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#restartButton:hover {
+    background: #388E3C;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#restartButton:active {
+    transform: translateY(0);
+}
+
+#muteButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#muteButton.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+}
+
+#muteButton:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+#muteButton:active {
+    transform: scale(0.95);
+}
+
+/* Hide canvas on very small screens */
+@media (max-width: 300px) {
+    .game-container {
+        display: none;
+    }
+    body::after {
+        content: "Screen too small for gameplay";
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+} 

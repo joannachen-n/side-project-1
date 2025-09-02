@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Jojo's Side Project 2 - A fun arcade game">
+    <meta name="theme-color" content="#64B5F6">
+    <title>Jojo's Side Project 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- The canvas element where we'll draw our game -->
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="hidden">
+            <div class="game-over-content">
+                <h1>Game Over!</h1>
+                <p class="final-score">Score: <span id="finalScore">0</span></p>
+                <button id="restartButton">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mute button (outside game container) -->
+    <button id="muteButton" aria-label="Toggle Sound">🔊</button>
+    
+    <!-- Load sounds first -->
+    <script src="audio/sounds.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
